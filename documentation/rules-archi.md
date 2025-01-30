@@ -7,45 +7,45 @@
 ```
 /src
 │   ├── /app
-│   │   ├── /core
-│   │   │   ├── /layout
-│   │   │   │   ├── /layout-private.component.ts
-│   │   │   │   ├── /layout.component.ts
-│   │   │   ├── /pages
-│   │   │   │   ├── /private
-│   │   │   │   │   ├── /dashboard.page.ts
-│   │   │   │   ├── /public
-│   │   │   │   │   ├── /home.page.ts
-│   │   │   ├── /components
-│   │   │   │   ├── /header
-│   │   │   │   │   ├── /header-private.component.ts
-│   │   │   │   │   ├── /header.component.ts
-│   │   │   │   ├── /footer
-│   │   │   │   │   ├── /footer-private.component.ts
-│   │   │   │   │   ├── /footer.component.ts
-│   │   │   ├── /services
-│   │   │   │   │   ├── /date.service.ts
-│   │   │   ├── /guards
-│   │   │   │   │   ├── /role.guard.ts
-│   │   │   ├── /interceptors
-│   │   ├── /shared
-│   │   │   ├── /components
-│   │   │   │   ├── /button
-│   │   │   │   │   ├── /button.component.ts
-│   │   │   ├── /directives
-│   │   │   ├── /pipes
-│   │   ├── /domain
-│   │   │   ├── /task-example
-│   │   │   │   ├── /components
-│   │   │   │   ├── /services
-│   │   │   │   ├── /models
-│   │   │   └── /another-domain
-│   │   │       ├── /components
-│   │   │       ├── /services
-│   │   │       ├── /models
 │   │   ├── app.component.ts
 │   │   ├── app.module.ts
 │   │   └── app-routing.module.ts
+│   │── /core
+│   │   ├── /layout
+│   │   │   ├── /layout-private.component.ts
+│   │   │   ├── /layout.component.ts
+│   │   ├── /pages
+│   │   │   ├── /private
+│   │   │   │   ├── /dashboard.page.ts
+│   │   │   ├── /public
+│   │   │   │   ├── /home.page.ts
+│   │   ├── /components
+│   │   │   ├── /header
+│   │   │   │   ├── /header-private.component.ts
+│   │   │   │   ├── /header.component.ts
+│   │   │   ├── /footer
+│   │   │   │   ├── /footer-private.component.ts
+│   │   │   │   ├── /footer.component.ts
+│   │   ├── /services
+│   │   │   │   ├── /date.service.ts
+│   │   ├── /guards
+│   │   │   │   ├── /role.guard.ts
+│   │   ├── /interceptors
+│   │── /shared
+│   │   ├── /components
+│   │   │   ├── /button
+│   │   │   │   ├── /button.component.ts
+│   │   ├── /directives
+│   │   ├── /pipes
+│   │── /domain
+│   │   ├── /task-example
+│   │   │   ├── /components
+│   │   │   ├── /services
+│   │   │   ├── /models
+│   │   └── /another-domain
+│   │       ├── /components
+│   │       ├── /services
+│   │       ├── /models
 │   ├── /assets
 │   ├── /environments
 │   ├── main.ts
