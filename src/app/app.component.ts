@@ -2,11 +2,8 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-root',
+  selector: 'her-root',
   imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
 })
-export class AppComponent {
-  title = 'heracles';
-}
+export class AppComponent {}

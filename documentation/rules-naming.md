@@ -1,5 +1,10 @@
 # Rules naming  
 
+> ATTENTION UTILISER LES OUTILS DU CLI ANGULAR POUR CREER LES FICHIERS  
+> PUIS DEPLACER CELUI CI DANS LE DOSSIER APPROPRIE  
+> 
+> utiliser les commandes makes utilisant `ng`, besoin d'aide taper `make help` directement dans le terminal
+
 ---
 
 ### **1. Utilisation des minuscules et du kebab-case**

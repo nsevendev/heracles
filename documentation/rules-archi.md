@@ -62,6 +62,17 @@
 > Les fichiers .html et .css ont été omis pour simplifier la lecture  
 > mais chaques composants contient ses fichiers .html et .css
 
+### **Composant starter**  
+le dossier `app` contient le composant principal de l'application.  
+c'est celui qui est chargé en premier lors du démarrage de l'application.  
+il fait office de point d'entrée de routage pour les autres composants.  
+
+- il contient que le premier `router-outlet` pour afficher les layouts.
+- **`app.config.server.ts`** : Configuration de l'application pour le SSR.
+- **`app.config.ts`** : Configuration de l'application pour le mode client.
+- **`app.routes.server.ts`** : Declartion des routes coté server et attibution du mode de rendu  
+- **`app.routes.ts`** : Declartion des routes coté client et attibution des composants au defférentes routes  
+
 ### **1.1 Dossier `core/`**
 Le dossier `core` contient tous les éléments globaux de l'application, qui sont utilisés une seule fois et fournis à l'ensemble du projet.
 
