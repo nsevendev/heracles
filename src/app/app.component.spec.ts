@@ -1,23 +1,23 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LayoutPublicComponent } from './layout-public.component';
 import {provideRouter, withComponentInputBinding} from '@angular/router';
-import {routes} from '../../../app/app.routes';
+import {routes} from './app.routes';
+import {AppComponent} from './app.component';
 
-describe('LayoutPublicComponent', () => {
-  let component: LayoutPublicComponent;
-  let fixture: ComponentFixture<LayoutPublicComponent>;
+describe('LayoutErrorComponent', () => {
+  let component: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LayoutPublicComponent],
+      imports: [AppComponent],
       providers: [
         provideRouter(routes, withComponentInputBinding())
       ]
     })
-    .compileComponents();
+      .compileComponents();
 
-    fixture = TestBed.createComponent(LayoutPublicComponent);
+    fixture = TestBed.createComponent(AppComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

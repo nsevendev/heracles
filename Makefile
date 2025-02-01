@@ -51,12 +51,25 @@ sh: ## Connect to the FrankenPHP container
 bash: ## Connect to the FrankenPHP container via bash so up and down arrows go to previous commands
 	@$(APP_CONT) bash
 
+## —— Tests 🧪 ——————————————————————————————————————————————————————————————
+test: ## Exécute les tests sans watch
+	@$(BUN) run t:t
+
+test-w: ## Exécute les tests avec watch
+	@$(BUN) run t:w
+
+test-c: ## Exécute les tests avec code coverage
+	@$(BUN) run tc:t
+
+test-cw: ## Exécute les tests avec code coverage en mode watch
+	@$(BUN) run tc:w
+
 ## —— Angular Cli 🧙 ——————————————————————————————————————————————————————————————
 ng: ## Run ng, pass the parameter "c=" to run a given command, example: make ng c='generate service servicename'
 	@$(eval c ?=)
 	@$(APP_CONT) ng $(c)
 
-ngg: ## ng generate, pass the parameter "c=" to run a given command, example: make ngg c='component componentname'
+ngg: ## ng generate, pass the parameter "c=" to run a given command, see command in https://angular.dev/cli/generate
 	@$(eval c ?=)
 	@$(NGG) $(c)
 

@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LayoutPrivateComponent } from './layout-private.component';
+import {provideRouter, withComponentInputBinding} from '@angular/router';
+import {routes} from '../../../app/app.routes';
 
 describe('LayoutPrivateComponent', () => {
   let component: LayoutPrivateComponent;
@@ -8,7 +10,10 @@ describe('LayoutPrivateComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LayoutPrivateComponent]
+      imports: [LayoutPrivateComponent],
+      providers: [
+        provideRouter(routes, withComponentInputBinding())
+      ]
     })
     .compileComponents();
 
