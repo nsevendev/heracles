@@ -24,7 +24,6 @@ jobs:
           curl -fsSL https://bun.sh/install | bash
           echo "Bun installed successfully"
           echo "$HOME/.bun/bin" >> $GITHUB_PATH
-          source ~/.bashrc
           bun --version || echo "Bun is not found in the PATH"
 
       - name: Cache Bun dependencies
@@ -37,6 +36,7 @@ jobs:
 
       - name: Install dependencies
         run: |
+          bun --version || echo "Bun is not found in the PATH"
           bun install --frozen-lockfile
           echo "Bun dependencies installed"
 
