@@ -79,7 +79,7 @@ install: ## Install dependencies with Bun and with lock file
 
 bun: ## Run bun, pass the parameter "c=" to run a given command, example: make bun c='add packagename'
 	@$(eval c ?=)
-	@$(Bun) $(c)
+	@$(BUN) $(c)
 
 bun-arg: ## Run bun, pass the parameter "c=" to run a given command, example: make bun c='add packagename'
 	@$(eval c ?=)
