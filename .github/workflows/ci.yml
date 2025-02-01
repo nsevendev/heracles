@@ -23,9 +23,10 @@ jobs:
         run: |
           curl -fsSL https://bun.sh/install | bash
           echo "Bun installed successfully"
-          echo "/root/.bun/bin" >> $GITHUB_ENV
-          echo $PATH # Afficher le PATH pour vérifier si Bun y est
-          /root/.bun/bin/bun --version || echo "Bun is not found in the PATH"
+          export BUN_DIR="$HOME/.bun"
+          curl -fsSL https://bun.sh/install | bash -s -- --prefix="$BUN_DIR"
+          echo "$BUN_DIR/bin" >> $GITHUB_PATH
+          bun --version || echo "Bun is not found in the PATH"
 
       - name: Cache Bun dependencies
         uses: actions/cache@v3
