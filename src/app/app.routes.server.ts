@@ -3,18 +3,22 @@ import { RenderMode, ServerRoute } from '@angular/ssr';
 export const serverRoutes: ServerRoute[] = [
   {
     path: '',
-    renderMode: RenderMode.Server
+    renderMode: RenderMode.Server,
+  },
+  {
+    path: 'todolist',
+    renderMode: RenderMode.Server,
   },
   {
     path: 'dashboard',
-    renderMode: RenderMode.Server
+    renderMode: RenderMode.Server,
   },
   {
     path: '500',
-    renderMode: RenderMode.Prerender
+    renderMode: RenderMode.Prerender,
   },
   {
     path: '**',
-    renderMode: RenderMode.Prerender
-  }
+    renderMode: RenderMode.Prerender,
+  },
 ];
