@@ -7,6 +7,7 @@ import {
 import { Task } from '../model/todolist.model';
 import { ComputedService } from '../service/computed.service';
 import { MethodsService } from '../service/methods.service';
+import { inject, Provider } from '@angular/core';
 
 export type TodolistState = {
   tasks: Task[];
@@ -23,16 +24,29 @@ const initialState: TodolistState = {
 export const TodolistStore = signalStore(
   withState(initialState),
 
-  withComputed((store) => {
+  withComputed((store, computedService = inject(ComputedService)) => ({
+    ...computedService,
+  })),
+
+  /* withComputed((store) => {
     const computedService = new ComputedService(store); // Passe le store manuellement
     return { ...computedService }; // Inclut les propriétés calculées
-  }),
+  }), */
 
-  withMethods((store) => {
+  withMethods((store, methodsService = inject(MethodsService)) => ({
+    ...methodsService,
+  }))
+  /* withMethods((store) => {
     const methodsService = new MethodsService(store); // Passe le store manuellement
     return { ...methodsService }; // Inclut les méthodes
-  })
+  }) */
 );
+
+/* export const TODOLIST_PROVIDERS: Provider[] = [
+  { provide: ComputedService, useClass: ComputedService },
+  { provide: MethodsService, useClass: MethodsService },
+  { provide: TodolistStore, useValue: TodolistStore },
+]; */
 
 // pour provide le store de facon global
 /*export const TodolistStore = signalStore(

@@ -1,15 +1,13 @@
-import { computed, inject, Inject, Injectable } from '@angular/core';
+import { computed, inject, Injectable } from '@angular/core';
 import { Task } from '../model/todolist.model';
-// import { STORE_TOKEN } from '../store/store.token';
-import { TodolistStore } from '../store/todolist.store';
+import { Todolist2Store } from '../store/todolist2.store';
 
 @Injectable()
-export class ComputedService {
-  // constructor(@Inject(STORE_TOKEN) private store: any) {}
+export class Computed2Service {
   store: any;
 
   constructor() {
-    this.store = inject(TodolistStore);
+    this.store = inject(Todolist2Store);
   }
 
   filteredTasks = computed(() => {

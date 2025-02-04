@@ -1,22 +1,18 @@
 import { inject, Inject, Injectable } from '@angular/core';
 import { patchState } from '@ngrx/signals';
 import { Task } from '../model/todolist.model';
-// import { STORE_TOKEN } from '../store/store.token';
-import { TodolistState, TodolistStore } from '../store/todolist.store';
+import { Todolist2State, Todolist2Store } from '../store/todolist2.store';
 
 @Injectable()
-export class MethodsService {
-  // constructor(@Inject(STORE_TOKEN) private store: any) {}
+export class Methods2Service {
   store: any;
 
   constructor() {
-    this.store = inject(TodolistStore);
+    this.store = inject(Todolist2Store);
   }
 
   addTask = (content: string) => {
-    console.log(this.store);
-    patchState(this.store, (state: TodolistState) => {
-      console.log(state);
+    patchState(this.store, (state: Todolist2State) => {
       const newTask: Task = {
         id: Date.now(),
         content,
@@ -27,16 +23,16 @@ export class MethodsService {
   };
 
   toggleTask = (id: number) => {
-    patchState(this.store, (state: TodolistState) => ({
-      tasks: state.tasks.map((task: Task) =>
+    patchState(this.store, (state: Todolist2State) => ({
+      tasks: state.tasks.map((task) =>
         task.id === id ? { ...task, completed: !task.completed } : task
       ),
     }));
   };
 
   deleteTask = (id: number) => {
-    patchState(this.store, (state: TodolistState) => ({
-      tasks: state.tasks.filter((task: Task) => task.id !== id),
+    patchState(this.store, (state: Todolist2State) => ({
+      tasks: state.tasks.filter((task) => task.id !== id),
     }));
   };
 

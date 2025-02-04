@@ -1,22 +1,18 @@
 import { inject, Inject, Injectable } from '@angular/core';
 import { patchState } from '@ngrx/signals';
 import { Task } from '../model/todolist.model';
-// import { STORE_TOKEN } from '../store/store.token';
-import { TodolistState, TodolistStore } from '../store/todolist.store';
+import { TodolistState, Todolist3Store } from '../store/todolist3.store';
 
 @Injectable()
-export class MethodsService {
-  // constructor(@Inject(STORE_TOKEN) private store: any) {}
+export class Methods3Service {
   store: any;
 
   constructor() {
-    this.store = inject(TodolistStore);
+    this.store = inject(Todolist3Store);
   }
 
   addTask = (content: string) => {
-    console.log(this.store);
-    patchState(this.store, (state: TodolistState) => {
-      console.log(state);
+    patchState<TodolistState>(this.store, (state) => {
       const newTask: Task = {
         id: Date.now(),
         content,
