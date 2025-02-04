@@ -1,14 +1,14 @@
-import { computed, inject } from '@angular/core';
 import {
   signalStore,
   withState,
   withMethods,
   withComputed,
 } from '@ngrx/signals';
-import { patchState } from '@ngrx/signals';
 import { Task } from '../model/todolist.model';
+import { ComputedService } from '../service/computed.service';
+import { MethodsService } from '../service/methods.service';
 
-type TodolistState = {
+export type TodolistState = {
   tasks: Task[];
   filter: 'all' | 'completed' | 'incomplete';
 };
@@ -23,7 +23,26 @@ const initialState: TodolistState = {
 export const TodolistStore = signalStore(
   withState(initialState),
 
-  // j'jaoute des propriétés customs pour retourner les tasks, les filtrer etc ... sans manipulation du store
+  withComputed((store) => {
+    const computedService = new ComputedService(store); // Passe le store manuellement
+    return { ...computedService }; // Inclut les propriétés calculées
+  }),
+
+  withMethods((store) => {
+    const methodsService = new MethodsService(store); // Passe le store manuellement
+    return { ...methodsService }; // Inclut les méthodes
+  })
+);
+
+// pour provide le store de facon global
+/*export const TodolistStore = signalStore(
+    // 👇 Providing `BooksStore` at the root level.
+    { providedIn: 'root' },
+    withState(initialState)
+    // { ... }
+  );*/
+
+/* // j'jaoute des propriétés customs pour retourner les tasks, les filtrer etc ... sans manipulation du store
   withComputed(({ tasks, filter }) => ({
     filteredTasks: computed(() => {
       const currentFilter = filter();
@@ -74,13 +93,4 @@ export const TodolistStore = signalStore(
     updateFilter(filter: 'all' | 'completed' | 'incomplete'): void {
       patchState(store, { filter });
     },
-  }))
-);
-
-// pour provide le store de facon global
-/*export const TodolistStore = signalStore(
-    // 👇 Providing `BooksStore` at the root level.
-    { providedIn: 'root' },
-    withState(initialState)
-    // { ... }
-  );*/
+  })) */

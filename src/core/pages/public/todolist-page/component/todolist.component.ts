@@ -1,12 +1,16 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { TodolistStore } from '../store/todolist.store';
 import { CommonModule } from '@angular/common';
+import { STORE_TOKEN } from '../store/store.token';
 
 @Component({
   selector: 'app-todolist',
   templateUrl: './todolist.component.html', // pour lier mon html
   styleUrls: ['./todolist.component.css'], // pour lier ma feuille de style
-  providers: [TodolistStore], // injecte mon store localement
+  providers: [
+    TodolistStore,
+    { provide: STORE_TOKEN, useValue: TodolistStore }, // Fournit store comme InjectionToken
+  ], // injecte mon store localement
   imports: [CommonModule], // patch une erreur angular a la con
 })
 export class TodolistComponent implements OnInit {
