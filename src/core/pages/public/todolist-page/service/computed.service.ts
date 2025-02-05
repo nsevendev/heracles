@@ -1,33 +1,24 @@
-import { computed, inject, Inject, Injectable } from '@angular/core';
+import { computed } from '@angular/core';
 import { Task } from '../model/todolist.model';
-// import { STORE_TOKEN } from '../store/store.token';
-import { TodolistStore } from '../store/todolist.store';
+import { CounterStoreForComputed } from '../store/todolist.store';
 
-@Injectable()
-export class ComputedService {
-  // constructor(@Inject(STORE_TOKEN) private store: any) {}
-  store: any;
+export function createComputed(store: CounterStoreForComputed) {
+  return {
+    filteredTasks: computed(() => {
+      const currentFilter = store.filter();
+      const allTasks = store.tasks();
 
-  constructor() {
-    this.store = inject(TodolistStore);
-  }
+      if (currentFilter === 'completed') {
+        return allTasks.filter((task: Task) => task.completed);
+      } else if (currentFilter === 'incomplete') {
+        return allTasks.filter((task: Task) => !task.completed);
+      }
 
-  filteredTasks = computed(() => {
-    const currentFilter = this.store.filter();
-    const allTasks = this.store.tasks();
-
-    if (currentFilter === 'completed') {
-      return allTasks.filter((task: Task) => task.completed);
-    } else if (currentFilter === 'incomplete') {
-      return allTasks.filter((task: Task) => !task.completed);
-    }
-
-    return allTasks;
-  });
-
-  tasksCount = computed(() => this.store.tasks().length);
-
-  completedCount = computed(
-    () => this.store.tasks().filter((task: Task) => task.completed).length
-  );
+      return allTasks;
+    }),
+    tasksCount: computed(() => store.tasks().length),
+    completedCount: computed(
+      () => store.tasks().filter((task: Task) => task.completed).length
+    ),
+  };
 }

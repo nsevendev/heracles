@@ -1,46 +1,40 @@
-import { inject, Inject, Injectable } from '@angular/core';
 import { patchState } from '@ngrx/signals';
 import { Task } from '../model/todolist.model';
-// import { STORE_TOKEN } from '../store/store.token';
-import { TodolistState, TodolistStore } from '../store/todolist.store';
+import {
+  TodolistState,
+  TodolistStore,
+  TodolistStoreForMethods,
+} from '../store/todolist.store';
 
-@Injectable()
-export class MethodsService {
-  // constructor(@Inject(STORE_TOKEN) private store: any) {}
-  store: any;
+export function createMethods(store: TodolistStoreForMethods) {
+  return {
+    addTask: (content: string) => {
+      patchState(store, (state: TodolistState) => {
+        const newTask: Task = {
+          id: Date.now(),
+          content,
+          completed: false,
+        };
+        return { tasks: [...state.tasks, newTask] };
+      });
+    },
 
-  constructor() {
-    this.store = inject(TodolistStore);
-  }
+    toggleTask: (id: number) => {
+      patchState(store, (state: TodolistState) => ({
+        tasks: state.tasks.map((task: Task) =>
+          task.id === id ? { ...task, completed: !task.completed } : task
+        ),
+      }));
+    },
 
-  addTask = (content: string) => {
-    console.log(this.store);
-    patchState(this.store, (state: TodolistState) => {
-      console.log(state);
-      const newTask: Task = {
-        id: Date.now(),
-        content,
-        completed: false,
-      };
-      return { tasks: [...state.tasks, newTask] };
-    });
-  };
+    deleteTask: (id: number) => {
+      patchState(store, (state: TodolistState) => ({
+        tasks: state.tasks.filter((task: Task) => task.id !== id),
+      }));
+    },
 
-  toggleTask = (id: number) => {
-    patchState(this.store, (state: TodolistState) => ({
-      tasks: state.tasks.map((task: Task) =>
-        task.id === id ? { ...task, completed: !task.completed } : task
-      ),
-    }));
-  };
-
-  deleteTask = (id: number) => {
-    patchState(this.store, (state: TodolistState) => ({
-      tasks: state.tasks.filter((task: Task) => task.id !== id),
-    }));
-  };
-
-  updateFilter = (filter: 'all' | 'completed' | 'incomplete') => {
-    patchState(this.store, { filter });
+    updateFilter: (filter: 'all' | 'completed' | 'incomplete') => {
+      patchState(store, { filter });
+    },
   };
 }
