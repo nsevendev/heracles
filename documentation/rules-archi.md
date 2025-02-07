@@ -37,6 +37,7 @@
 │   │   │   ├── /button
 │   │   │   │   ├── /button.component.ts
 │   │   ├── /directives
+│   │   │   ├── /primeng
 │   │   ├── /pipes
 │   │── /domain
 │   │   ├── /task-example
