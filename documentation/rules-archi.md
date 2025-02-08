@@ -13,7 +13,8 @@
 │   │── /core
 │   │   ├── /layout
 │   │   │   ├── /layout-private.component.ts
-│   │   │   ├── /layout.component.ts
+│   │   │   ├── /layout-public.component.ts
+│   │   │   ├── /layout-error.component.ts
 │   │   ├── /pages
 │   │   │   ├── /private
 │   │   │   │   ├── /dashboard.page.ts
@@ -36,16 +37,25 @@
 │   │   │   ├── /button
 │   │   │   │   ├── /button.component.ts
 │   │   ├── /directives
+│   │   │   ├── /primeng
 │   │   ├── /pipes
 │   │── /domain
 │   │   ├── /task-example
 │   │   │   ├── /components
 │   │   │   ├── /services
 │   │   │   ├── /models
+│   │   │   ├── /store
+│   │   │   │   ├── store.root.ts
+│   │   │   │   ├── computed.ts
+│   │   │   │   ├── method.ts
 │   │   └── /another-domain
-│   │       ├── /components
-│   │       ├── /services
-│   │       ├── /models
+│   │   │   ├── /components
+│   │   │   ├── /services
+│   │   │   ├── /models
+│   │   │   ├── /store
+│   │   │   │   ├── store.local.ts
+│   │   │   │   ├── computed.ts
+│   │   │   │   ├── method.ts
 │   ├── /assets
 │   ├── /environments
 │   ├── main.ts
