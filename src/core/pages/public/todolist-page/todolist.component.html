@@ -1,0 +1,23 @@
+<div class="flex flex-col gap-8 justify-center items-center">
+  <h1>Todo List de fou zinzin</h1>
+  <p>Completed: {{ store.completedCount() }}/{{ store.tasksCount() }}</p>
+
+  <div class="flex gap-8">
+    <input-text
+      [placeholder]="'Ajouter une task'"
+      (entered)="addTaskFromEvent($event)"
+      borderColorBlue
+    ></input-text>
+
+    <selectbutton (filterChange)="updateFilterFromEvent($event)"></selectbutton>
+  </div>
+
+  <div class="flex flex-col w-160 items-center justify-center gap-[1vw]">
+    <task
+      *ngFor="let task of store.filteredTasks()"
+      [task]="task"
+      (toggle)="store.toggleTask($event)"
+      (delete)="store.deleteTask($event)"
+    ></task>
+  </div>
+</div>

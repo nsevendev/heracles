@@ -6,8 +6,8 @@ import {
   WritableStateSource,
 } from '@ngrx/signals';
 import { Task } from '../model/todolist.model';
-import { createComputed } from '../service/computed.service';
-import { createMethods } from '../service/methods.service';
+import { createComputed } from '../services/computed.service';
+import { createMethods } from '../services/methods.service';
 import { Signal } from '@angular/core';
 
 export type TodolistState = {

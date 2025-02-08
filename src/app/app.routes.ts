@@ -29,9 +29,9 @@ export const routes: Routes = [
       {
         path: '',
         loadComponent: () =>
-          import(
-            '../core/pages/public/todolist-page/component/todolist.component'
-          ).then((m) => m.TodolistComponent),
+          import('../core/pages/public/todolist-page/todolist.component').then(
+            (m) => m.TodolistComponent
+          ),
       },
     ],
   },

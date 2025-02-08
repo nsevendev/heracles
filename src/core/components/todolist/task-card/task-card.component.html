@@ -1,0 +1,21 @@
+<p-card class="w-full">
+  <div class="flex items-center justify-between gap-16">
+    <p-checkbox
+      [binary]="true"
+      [ngModel]="task.completed"
+      (ngModelChange)="toggleTask()"
+    ></p-checkbox>
+
+    <span class="flex-1 text-lg" [ngClass]="{ 'line-through': task.completed }">
+      {{ task.content }}
+    </span>
+
+    <button
+      pButton
+      pRipple
+      icon="pi pi-trash"
+      class="p-button-danger"
+      (click)="deleteTask()"
+    ></button>
+  </div>
+</p-card>
