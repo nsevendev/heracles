@@ -1,0 +1,7 @@
+{
+    "intelephense.environment.phpVersion": "8.1",
+    "intelephense.files.associations": ["*.php"],
+    "intelephense.diagnostics.enable": true,
+    "intelephense.format.enable": true,
+    "editor.formatOnSave": true
+}
