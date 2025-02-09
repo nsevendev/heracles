@@ -14,10 +14,11 @@ export const appConfig: ApplicationConfig = {
     provideClientHydration(withEventReplay()),
     provideAnimationsAsync(),
     providePrimeNG({
+      ripple: true,
       theme: {
         preset: heraclesTheme,
         options: {
-          ripple: true
+          darkModeSelector: '.dark' // class ajouter a la balise <html>
         }
       }
     })
