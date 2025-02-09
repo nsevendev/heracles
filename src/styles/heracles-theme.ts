@@ -1,6 +1,9 @@
 import Aura from "@primeng/themes/aura";
 import { definePreset } from "@primeng/themes";
 
+// @ts-ignore
+// @ts-ignore
+// @ts-ignore
 export const heraclesTheme = definePreset(Aura, {
     primitive: {
         borderRadius: {
@@ -10,6 +13,19 @@ export const heraclesTheme = definePreset(Aura, {
             md: "6px",
             lg: "8px",
             xl: "12px"
+        },
+        gold: {
+            50:  '#FFFAE5',
+            100: '#FFF5CC',
+            200: '#FFEB99',
+            300: '#FFE066',
+            400: '#FFD633',
+            500: '#FFD700',
+            600: '#E6C300',
+            700: '#CCAA00',
+            800: '#B28F00',
+            900: '#806600',
+            950: '#4D3F00'
         },
         emerald: {
             50: "#ecfdf5",
@@ -311,17 +327,17 @@ export const heraclesTheme = definePreset(Aura, {
         iconSize: "1rem",
         anchorGutter: "2px",
         primary: {
-            50: "#ecfdf5",
-            100: "#d1fae5",
-            200: "#a7f3d0",
-            300: "#6ee7b7",
-            400: "#34d399",
-            500: "#10b981",
-            600: "#059669",
-            700: "#047857",
-            800: "#065f46",
-            900: "#064e3b",
-            950: "#022c22"
+            50: "{gold.50}",
+            100: "{gold.100}",
+            200: "{gold.200}",
+            300: "{gold.300}",
+            400: "{gold.400}",
+            500: "{gold.500}",
+            600: "{gold.600}",
+            700: "{gold.700}",
+            800: "{gold.800}",
+            900: "{gold.900}",
+            950: "{gold.950}"
         },
         formField: {
             paddingX: "0.75rem",
@@ -422,7 +438,7 @@ export const heraclesTheme = definePreset(Aura, {
                 },
                 primary: {
                     color: "{primary.500}",
-                    contrastColor: "#ffffff",
+                    contrastColor: "#000000",
                     hoverColor: "{primary.600}",
                     activeColor: "{primary.700}"
                 },
@@ -5187,19 +5203,19 @@ export const heraclesTheme = definePreset(Aura, {
                 maxWidth: "12.5rem",
                 gutter: "0.25rem",
                 shadow: "{overlay.popover.shadow}",
-                padding: "0.5rem 0.75rem",
-                borderRadius: "{overlay.popover.border.radius}"
+                padding: "0.2rem 0.5rem",
+                borderRadius: "{overlay.popover.border.radius}",
             },
             colorScheme: {
                 light: {
                     root: {
-                        background: "{surface.700}",
+                        background: "{surface.900}",
                         color: "{surface.0}"
                     }
                 },
                 dark: {
                     root: {
-                        background: "{surface.700}",
+                        background: "{surface.600}",
                         color: "{surface.0}"
                     }
                 }
@@ -5218,6 +5234,31 @@ export const heraclesTheme = definePreset(Aura, {
                     }
                 }
             }
-        }
+        },
+    },
+    // @ts-ignore
+    css: ({dt}) => `
+    .header-public {
+        background-color: ${dt('neutral.800')};
     }
+    .dark .header-public {
+        background-color: ${dt('neutral.900')};
+    }
+
+    .footer-public {
+        background-color: ${dt('neutral.800')};
+    }
+    .dark .footer-public {
+        background-color: ${dt('neutral.900')};
+    }
+
+    .menu-side-left {
+        background-color: ${dt('neutral.800')};
+        color: ${dt('surface.0')};
+    }
+
+    .dark .menu-side-left {
+        background-color: ${dt('neutral.900')};
+    }
+    `
 });

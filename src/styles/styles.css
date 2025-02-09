@@ -1,5 +1,5 @@
-@import "primeicons/primeicons.css";
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+@import "primeicons/primeicons.css";
 @import "tailwindcss";
 
 /* config tailwind */
@@ -13,7 +13,7 @@
   --color-secon: #ed8936;
   --color-second: #dd6b20;
 
-  --color-accl: #9f7aea;
+  --color-accl: #313131;
   --color-acc: #805ad5;
   --color-accd: #6b46c1;
 
@@ -92,10 +92,28 @@
   --tracking-widest: 0.1em;*/
 }
 
-html, body {
+/* ================================= ROOT ================================= */
+
+html, body, her-root, her-layout-public, her-layout-private {
   height: 100vh;
 }
 
 body {
-  @apply font-it;
+  @apply font-it flex flex-col;
+}
+
+her-root {
+  @apply flex flex-col;
+}
+
+/* ================================= LAYOUT ================================= */
+
+/* cible l'element directe */
+her-layout-public {
+  @apply flex flex-col;
+}
+
+/* cible l'element directe */
+her-layout-private {
+  @apply flex flex-col;
 }

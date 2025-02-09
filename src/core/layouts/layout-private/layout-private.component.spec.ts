@@ -1,8 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { LayoutPrivateComponent } from './layout-private.component';
-import {provideRouter, withComponentInputBinding} from '@angular/router';
+import {provideRouter, RouterOutlet, withComponentInputBinding} from '@angular/router';
 import {routes} from '../../../app/app.routes';
+import {PLATFORM_ID} from '@angular/core';
+import {HeaderPublicComponent} from '../../components/header-public/header-public.component';
+import {MenuLeftSideComponent} from '../../components/menu-left-side/menu-left-side.component';
+import {provideNoopAnimations} from '@angular/platform-browser/animations';
 
 describe('LayoutPrivateComponent', () => {
   let component: LayoutPrivateComponent;
@@ -10,9 +13,16 @@ describe('LayoutPrivateComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LayoutPrivateComponent],
+      imports: [
+        LayoutPrivateComponent,
+        RouterOutlet,
+        HeaderPublicComponent,
+        MenuLeftSideComponent
+      ],
       providers: [
-        provideRouter(routes, withComponentInputBinding())
+        provideRouter(routes, withComponentInputBinding()),
+        provideNoopAnimations(),
+        {provide: PLATFORM_ID, useValue: 'browser'},
       ]
     })
     .compileComponents();
