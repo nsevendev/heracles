@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
-  // public
+  // ======================================================================================= public
   {
     path: '',
     loadComponent: () =>
@@ -15,7 +15,7 @@ export const routes: Routes = [
     ]
   },
 
-  // private
+  // ======================================================================================= private
   {
     path: 'dashboard',
     loadComponent: () =>
@@ -28,6 +28,8 @@ export const routes: Routes = [
       },
     ]
   },
+
+  // ======================================================================================= error
 
   // error 500
   {
