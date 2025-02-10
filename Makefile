@@ -49,7 +49,7 @@ logs: ## Show live logs
 sh: ## Connect to the FrankenPHP container
 	@$(APP_CONT) sh
 
-bash: ## Connect to the FrankenPHP container via bash so up and down arrows go to previous commands
+bash: ## Connect container via bash so up and down arrows go to previous commands
 	@$(APP_CONT) bash
 
 ## —— Tests 🧪 ——————————————————————————————————————————————————————————————
