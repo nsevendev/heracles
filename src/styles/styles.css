@@ -92,6 +92,11 @@
   --tracking-widest: 0.1em;*/
 }
 
+* {
+  transition: none !important;
+  animation: none !important;
+}
+
 /* ================================= ROOT ================================= */
 
 html, body, her-root, her-layout-public, her-layout-private {
