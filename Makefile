@@ -6,6 +6,7 @@
 #endif
 
 # Executables (local)
+DOCKER			= docker
 DOCKER_COMP = docker compose
 
 # Docker containers
@@ -43,12 +44,12 @@ down: ## Stop the docker hub
 	@$(DOCKER_COMP) down --remove-orphans
 
 logs: ## Show live logs
-	@$(DOCKER_COMP) logs --tail=0 --follow
+	@$(DOCKER) logs -f heracles
 
 sh: ## Connect to the FrankenPHP container
 	@$(APP_CONT) sh
 
-bash: ## Connect to the FrankenPHP container via bash so up and down arrows go to previous commands
+bash: ## Connect container via bash so up and down arrows go to previous commands
 	@$(APP_CONT) bash
 
 ## —— Tests 🧪 ——————————————————————————————————————————————————————————————

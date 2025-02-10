@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
-import {RouterLink, RouterOutlet} from '@angular/router';
+import {RouterOutlet} from '@angular/router';
+import {HeaderPublicComponent} from '../../components/header-public/header-public.component';
+import {MenuLeftSideComponent} from '../../components/menu-left-side/menu-left-side.component';
 
 @Component({
   selector: 'her-layout-private',
   imports: [
     RouterOutlet,
-    RouterLink
+    HeaderPublicComponent,
+    MenuLeftSideComponent
   ],
   templateUrl: './layout-private.component.html',
   styleUrl: './layout-private.component.css'

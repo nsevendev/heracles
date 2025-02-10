@@ -17,7 +17,7 @@ export const appConfig: ApplicationConfig = {
       theme: {
         preset: heraclesTheme,
         options: {
-          ripple: true
+          darkModeSelector: '.dark' // class ajouter a la balise <html>
         }
       }
     })

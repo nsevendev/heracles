@@ -24,11 +24,22 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/primeicons/fonts",
+                "output": "fonts/"
               }
             ],
             "styles": [
-              "src/styles/styles.css"
+              "src/styles/styles.css",
+              "node_modules/primeicons/primeicons.css"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src"
+              ]
+            },
             "scripts": [],
             "server": "src/main.server.ts",
             "outputMode": "server",
@@ -87,10 +98,16 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/primeicons/fonts",
+                "output": "fonts/"
               }
             ],
             "styles": [
-              "src/styles/styles.css"
+              "src/styles/styles.css",
+              "node_modules/primeicons/primeicons.css"
             ],
             "scripts": [],
             "karmaConfig": "karma.conf.js"
