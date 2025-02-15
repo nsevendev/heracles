@@ -1,0 +1,14 @@
+services:
+  app:
+    build:
+      target: development  # On utilise la phase dev du Dockerfile
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=traefik-nseven"
+      - "traefik.http.routers.heracles.rule=Host(`heracles.dev`)"
+      - "traefik.http.routers.heracles.entrypoints=websecure"
+      - "traefik.http.routers.heracles.tls=true"
+      - "traefik.http.routers.heracles.tls.certresolver=default"
+      - "traefik.http.services.heracles.loadbalancer.server.port=4200"
+    environment:
+      - NODE_ENV=development
