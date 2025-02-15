@@ -1,0 +1,11 @@
+services:
+  app:
+    build:
+      target: production  # On utilise la phase production du Dockerfile
+    labels: ## ATTENTION pour mise en prod il faudra verifier les labels
+      - "traefik.enable=true"
+      - "traefik.http.routers.heracles.rule=Host(`lm4.fr`)"
+      - "traefik.http.routers.heracles.entrypoints=websecure"
+      - "traefik.http.routers.heracles.tls.certresolver=le"
+    environment:
+      - NODE_ENV=production
