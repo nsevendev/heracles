@@ -1,6 +1,6 @@
 services:
-  app:
-    container_name: heracles
+  heracles-front:
+    container_name: heracles-front
     build:
       context: .
       dockerfile: Dockerfile
