@@ -5,12 +5,14 @@
 #   export $(shell sed 's/=.*//' .env.dev)
 #endif
 
+NAME_CONTAINER=heracles-front
+
 # Executables (local)
 DOCKER			= docker
 DOCKER_COMP = docker compose
 
 # Docker containers
-APP_CONT = $(DOCKER_COMP) exec app
+APP_CONT = $(DOCKER_COMP) exec $(NAME_CONTAINER)
 
 # Executables
 NPM = $(APP_CONT) npm
@@ -48,7 +50,7 @@ down: ## Stop the docker hub
 ## —— Docker generic 🐳 ————————————————————————————————————————————————————————————————
 logs: ## Show live logs
 	@echo "🚀 Affichage des logs du container..."
-	@$(DOCKER) logs -f heracles
+	@$(DOCKER) logs -f $(NAME_CONTAINER)
 
 bash: ## Connect container via bash so up and down arrows go to previous commands
 	@echo "🚀 Ouverture du container..."
