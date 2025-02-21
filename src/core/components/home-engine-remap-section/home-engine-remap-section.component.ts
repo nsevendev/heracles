@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { ButtonLearnMoreComponent } from '../button-learn-more/button-learn-more.component';
 
 @Component({
   selector: 'her-home-engine-remap-section',
-  imports: [],
+  imports: [ButtonLearnMoreComponent],
   templateUrl: './home-engine-remap-section.component.html',
   styleUrl: './home-engine-remap-section.component.css',
 })
