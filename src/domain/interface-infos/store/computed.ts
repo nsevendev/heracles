@@ -1,6 +1,8 @@
-import { computed, inject } from '@angular/core';
-import { InterfaceInfosStore } from './interface-infos.root';
+import { computed } from '@angular/core';
+import { InterfaceInfoStoreForComputed } from '../models/interface-infos.models';
 
-export class InterfaceInfosComputed {
-  private store = inject(InterfaceInfosStore);
+export function createComputed(store: InterfaceInfoStoreForComputed) {
+  return {
+    engineRemap: computed(() => store.engineRemap()),
+  };
 }

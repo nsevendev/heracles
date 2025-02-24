@@ -1,12 +1,18 @@
-import { Injectable, signal } from '@angular/core';
-import { signalStore, withState } from '@ngrx/signals';
-import { InterfaceInfoStoreState } from '../models/interface-infos.models';
+import {
+  signalStore,
+  withState,
+  withMethods,
+  withComputed,
+} from '@ngrx/signals';
+import { InterfaceInfoStore } from '../models/interface-infos.models';
+import { createComputed } from './computed';
+import { createMethods } from './method';
 
-@Injectable({ providedIn: 'root' })
-export class InterfaceInfosStore {
-  private store = signalStore(
-    withState<InterfaceInfoStoreState>({
-      engineRemap: null,
-    })
-  );
-}
+export const InterfaceInfosStore = signalStore(
+  withState<InterfaceInfoStore>({
+    engineRemap: null,
+  }),
+
+  withComputed((store) => createComputed(store)),
+  withMethods((store) => createMethods(store))
+);

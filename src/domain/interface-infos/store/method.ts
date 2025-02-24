@@ -1,7 +1,13 @@
-import { inject } from '@angular/core';
-import { InterfaceInfosStore } from './interface-infos.root';
-import { InterfaceInfoStoreState } from '../models/interface-infos.models';
+import { patchState } from '@ngrx/signals';
+import {
+  EngineRemap,
+  InterfaceInfoStoreForMethods,
+} from '../models/interface-infos.models';
 
-export class InterfaceInfosMethods {
-  private store = inject(InterfaceInfosStore);
+export function createMethods(store: InterfaceInfoStoreForMethods) {
+  return {
+    updateEngineRemap: (engineRemap: EngineRemap) => {
+      patchState(store, { engineRemap });
+    },
+  };
 }
