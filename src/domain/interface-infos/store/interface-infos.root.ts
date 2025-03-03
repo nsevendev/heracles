@@ -7,6 +7,8 @@ import {
 import { InterfaceInfoStore } from '../models/interface-infos.models';
 import { createComputed } from './computed';
 import { createMethods } from './method';
+import { EngineRemapService } from '../service/engine-remap.service';
+import { inject } from '@angular/core';
 
 export const InterfaceInfosStore = signalStore(
   withState<InterfaceInfoStore>({
@@ -14,5 +16,5 @@ export const InterfaceInfosStore = signalStore(
   }),
 
   withComputed((store) => createComputed(store)),
-  withMethods((store) => createMethods(store))
+  withMethods((store) => createMethods(store, inject(EngineRemapService)))
 );
