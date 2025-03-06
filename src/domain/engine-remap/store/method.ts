@@ -1,12 +1,12 @@
 import { patchState } from '@ngrx/signals';
 import {
   EngineRemap,
-  InterfaceInfoStoreForMethods,
-} from '../models/interface-infos.models';
+  EngineRemapStoreForMethods,
+} from '../models/engine-remap.models';
 import { EngineRemapService } from '../service/engine-remap.service';
 
 export function createMethods(
-  store: InterfaceInfoStoreForMethods,
+  store: EngineRemapStoreForMethods,
   engineRemapService: EngineRemapService
 ) {
   return {

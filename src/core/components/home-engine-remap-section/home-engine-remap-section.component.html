@@ -1,7 +1,14 @@
 <div
   [style.background-image]="backgroundImage"
-  class="h-screen bg-cover bg-center flex flex-col items-center"
+  class="h-[calc(100vh-5rem)] pt-[10vh] gap-[5vh] bg-cover bg-center flex flex-col items-center"
 >
-  <h1>TITRE TESTTTTTTTTTTTTTTTTTTTTTTTTTTTT</h1>
-  <her-button-learn-more navigateTo="/engine-remap  "></her-button-learn-more>
+  <h1 class="text-5xl font-bold">
+    {{ engineRemap()?.libelle || "j'ai pas encore la data ou elle est null" }}
+  </h1>
+  <h2 class="text-3xl mt-2">
+    {{
+      engineRemap()?.description || "j'ai pas encore la data ou elle est null"
+    }}
+  </h2>
+  <her-button-learn-more navigateTo="/engine-remap"></her-button-learn-more>
 </div>

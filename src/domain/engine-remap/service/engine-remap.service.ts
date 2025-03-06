@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { EngineRemap } from '../models/interface-infos.models';
+import { EngineRemap } from '../models/engine-remap.models';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +10,9 @@ export class EngineRemapService {
 
   constructor(private http: HttpClient) {}
 
-  getFirstEngineRemap(): Observable<EngineRemap> {
+  getFirstEngineRemap() {
+    let test = this.http.get<EngineRemap>(this.apiUrl);
+    console.log('ma requete : ', test);
     return this.http.get<EngineRemap>(this.apiUrl);
   }
 }

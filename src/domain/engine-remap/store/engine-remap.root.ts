@@ -4,14 +4,14 @@ import {
   withMethods,
   withComputed,
 } from '@ngrx/signals';
-import { InterfaceInfoStore } from '../models/interface-infos.models';
+import { EngineRemapStoreInitialValue } from '../models/engine-remap.models';
 import { createComputed } from './computed';
 import { createMethods } from './method';
 import { EngineRemapService } from '../service/engine-remap.service';
 import { inject } from '@angular/core';
 
-export const InterfaceInfosStore = signalStore(
-  withState<InterfaceInfoStore>({
+export const EngineRemapStore = signalStore(
+  withState<EngineRemapStoreInitialValue>({
     engineRemap: null,
   }),
 

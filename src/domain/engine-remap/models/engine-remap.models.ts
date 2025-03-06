@@ -2,19 +2,19 @@ import { Signal } from '@angular/core';
 import { WritableStateSource } from '@ngrx/signals';
 
 export interface EngineRemap {
-  title: string;
+  libelle: string;
   description: string;
 }
 
-export interface InterfaceInfoStore {
+export interface EngineRemapStoreInitialValue {
   engineRemap: EngineRemap | null;
 }
 
-export type InterfaceInfoStoreForMethods =
-  WritableStateSource<InterfaceInfoStore> & {
+export type EngineRemapStoreForMethods =
+  WritableStateSource<EngineRemapStoreInitialValue> & {
     engineRemap: () => EngineRemap | null;
   };
 
-export type InterfaceInfoStoreForComputed = {
+export type EngineRemapStoreForComputed = {
   engineRemap: Signal<EngineRemap | null>;
 };
