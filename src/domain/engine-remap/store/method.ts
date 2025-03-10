@@ -11,10 +11,17 @@ export function createMethods(
 ) {
   return {
     loadEngineRemap: () => {
-      engineRemapService.getFirstEngineRemap().subscribe((data) => {
-        patchState(store, { engineRemap: data });
+      engineRemapService.getFirstEngineRemap().subscribe({
+        next: (data) => {
+          console.log('ma data:', data);
+          console.log('avant mise a jour du store', store.engineRemap());
+          patchState(store, { engineRemap: data });
+          console.log('aprés mise a jour du store', store.engineRemap());
+        },
+        error: (error) => console.error('Error => ', error),
       });
     },
+
     updateEngineRemap: (engineRemap: EngineRemap) => {
       patchState(store, { engineRemap });
     },
