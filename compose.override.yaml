@@ -1,7 +1,5 @@
 services:
   heracles-front:
-    build:
-      target: development  # On utilise la phase dev du Dockerfile
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=traefik-nseven"
