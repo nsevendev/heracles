@@ -4,12 +4,18 @@ import (
 	"heracles/mod/logger"
 	"os"
 	"strings"
-	
+
 	"github.com/gin-gonic/gin"
 )
 
 func main() {
 	s := gin.Default()
+
+	s.GET("/", func(c *gin.Context) {
+		c.JSON(200, gin.H{
+			"message": "Hello World",
+		})
+	})
 
 	run(s)
 }
