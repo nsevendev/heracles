@@ -1,11 +1,3 @@
-# heracles
-frontend site projet Matt (garage)
+# Heracles  
 
-## Prerequis
-- docker
-
-## Installation
-```bash
-# lancer le conteneur docker
-make up
-```
+> Front du projet garage

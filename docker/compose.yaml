@@ -1,0 +1,21 @@
+services:
+  heracles-go:
+    build:
+      target: dev
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: ${NSC_NAME_CONTAINER_APP}
+    image: ${NSC_NAME_CONTAINER_APP}:latest
+    volumes:
+      - ../:/app
+    env_file:
+      - ../.env
+    networks:
+      - traefik-nseven
+      - heracles
+
+networks:
+  heracles:
+    driver: bridge
+  traefik-nseven:
+    external: true
