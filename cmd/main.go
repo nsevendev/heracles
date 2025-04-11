@@ -1,6 +1,7 @@
 package main
 
 import (
+	"heracles/app/router"
 	"heracles/mod/logger"
 	"os"
 	"strings"
@@ -11,11 +12,7 @@ import (
 func main() {
 	s := gin.Default()
 
-	s.GET("/", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"message": "Hello World",
-		})
-	})
+	router.Router(s)
 
 	run(s)
 }

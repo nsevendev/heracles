@@ -1,5 +1,6 @@
 FROM golang:1.24-alpine3.21 AS base
 RUN go install github.com/air-verse/air@latest
+RUN go install github.com/a-h/templ/cmd/templ@latest
 RUN mkdir -p /app/tmp/air
 WORKDIR /app
 COPY go.mod go.sum ./

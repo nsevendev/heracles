@@ -8,3 +8,12 @@ commands:
   devbnod:
     description: Start the development environment no detach mode
     command: docker compose --env-file .env -f docker/compose.yaml -f docker/compose.override.yaml up --build
+  stop:
+    description: Start the development environment no detach mode
+    command: ns d *NSC_NAME_CONTAINER_APP*
+  gh:
+    description: Start compilation of html files
+    command: docker exec -i *NSC_NAME_CONTAINER_APP* templ generate -v -log-level -path ./src/template
+  gwh:
+    description: Start compilation of html files
+    command: docker exec -i *NSC_NAME_CONTAINER_APP* templ generate -watch -v -log-level -path ./src/template

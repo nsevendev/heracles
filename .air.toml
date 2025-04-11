@@ -2,10 +2,11 @@ root = "."
 tmp_dir = "tmp/air"
 
 [build]
-cmd = "go build -o ./tmp/air/main ./cmd/main.go"
+cmd = "templ generate -v -log-level -path ./src/template && go build -o ./tmp/air/main ./cmd/main.go"
 bin = "tmp/air/main"
-include_ext = ["go"]
+include_ext = ["go", "html", "js", "ts", "css", "templ"]
 exclude_dir = ["tmp", "doc"]
+exclude_regex = ["\\_templ\\.go$"]
 watch_dir = "."
 
 [log]
