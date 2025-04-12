@@ -11,9 +11,7 @@ import (
 
 func main() {
 	s := gin.Default()
-
 	router.Router(s)
-
 	run(s)
 }
 
@@ -22,12 +20,12 @@ func run(s *gin.Engine) {
 	port := os.Getenv("PORT")
 	hostTraefik := extractStringInBacktick(os.Getenv("HOST_TRAEFIK"))
 	host := "0.0.0.0"
- 
+
 	logger.Success("Server is running on in container docker : " + host + ":" + port)
 	logger.Successf("Server is running on navigator on : https://%v", hostTraefik)
 
-	logger.Info("Démarrage du serveur ...")		
-	if err := s.Run(host + ":" + port);err != nil {
+	logger.Info("Démarrage du serveur ...")
+	if err := s.Run(host + ":" + port); err != nil {
 		logger.Fatalf("Erreur lors du démarrage du serveur : %v", err)
 	}
 }
@@ -43,4 +41,3 @@ func extractStringInBacktick(s string) string {
 
 	return s[start+1 : end]
 }
-

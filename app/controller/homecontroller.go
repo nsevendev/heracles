@@ -8,5 +8,7 @@ import (
 )
 
 func Home(c *gin.Context) {
-	layout.LayoutPublic(public.Home()).Render(c.Request.Context(), c.Writer)
-} 
+	if err := layout.LayoutPublic(public.Home()).Render(c.Request.Context(), c.Writer); err != nil {
+		return
+	}
+}
