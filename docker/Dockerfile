@@ -1,4 +1,4 @@
-FROM golang:1.24-alpine3.21 AS base
+FROM golang:1.24-bullseye AS base
 RUN go install github.com/air-verse/air@latest
 RUN go install github.com/a-h/templ/cmd/templ@latest
 RUN mkdir -p /app/tmp/air
