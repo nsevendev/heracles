@@ -4,6 +4,7 @@ import (
 	"heracles/app/router"
 	_ "heracles/internal/init"
 	"heracles/mod/logger"
+	"heracles/mod/middleware"
 	"os"
 	"strings"
 
@@ -13,6 +14,9 @@ import (
 func main() {
 	defer logger.Close()
 	s := gin.Default()
+
+	s.Use(middleware.ErrorServerInternal())
+	
 	router.Router(s)
 	run(s)
 }

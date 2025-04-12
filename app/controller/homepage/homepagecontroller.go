@@ -35,6 +35,7 @@ func (co *homePageController) Home(c *gin.Context) {
 		c.Request.Context(), 
 		c.Writer,
 	); err != nil {
+		c.Error(err)
 		return
 	}
 }
