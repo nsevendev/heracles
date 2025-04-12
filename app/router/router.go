@@ -11,5 +11,5 @@ func Router(r *gin.Engine) {
 
 	r.GET("/", controllers.HomePageController.Home)
 	
-	r.NoRoute()
+	r.NoRoute(controllers.NotFoundPageController.NotFoundPage)
 }

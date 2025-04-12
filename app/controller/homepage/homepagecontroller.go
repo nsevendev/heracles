@@ -22,13 +22,19 @@ type HomePageControllerI interface {
 func NewHomePageController() HomePageControllerI {
 	return &homePageController{
 		d: &data{
-			Title: "Home",
+			Title: "LM4",
 		},
 	}
 }
 
-func (h *homePageController) Home(c *gin.Context) {
-	if err := layout.LayoutPublic(public.Home()).Render(c.Request.Context(), c.Writer); err != nil {
+func (co *homePageController) Home(c *gin.Context) {
+	if err := layout.LayoutPublic(
+		co.d.Title,
+		 public.Home()).
+	Render(
+		c.Request.Context(), 
+		c.Writer,
+	); err != nil {
 		return
 	}
 }
