@@ -2,7 +2,7 @@ package layout
 
 import "heracles/src/template/partial"
 
-templ LayoutPublic(contents templ.Component) {
+templ LayoutPublic(Title string, contents templ.Component) {
     <!DOCTYPE html>
     <html lang="fr">
     <head>
@@ -11,6 +11,7 @@ templ LayoutPublic(contents templ.Component) {
         <meta name="description" content="Page d'accueil de LM4">
         <meta name="author" content="Mathieu Leclerc">
         <meta name="keywords" content="LM4, motorsport, reprogrammation, moteur, automobile, performance, optimisation">
+        <title>{Title}</title>
     </head>
     <body>
         @partial.Header()
