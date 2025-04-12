@@ -14,6 +14,7 @@ import (
 func main() {
 	defer logger.Close()
 	s := gin.Default()
+	s.Static("/assets", "./src/asset")
 
 	s.Use(middleware.ErrorServerInternal())
 	
