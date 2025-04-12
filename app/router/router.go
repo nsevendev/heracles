@@ -7,5 +7,9 @@ import (
 )
 
 func Router(r *gin.Engine) {
-	r.GET("/", controller.Home)
+	controllers := controller.NewContainerController()
+
+	r.GET("/", controllers.HomePageController.Home)
+	
+	r.NoRoute()
 }
