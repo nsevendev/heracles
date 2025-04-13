@@ -4,8 +4,8 @@ services:
       target: dev
       context: ..
       dockerfile: docker/Dockerfile
-    container_name: ${NSC_NAME_CONTAINER_APP}
     image: ${NSC_NAME_CONTAINER_APP}:latest
+    container_name: ${NSC_NAME_CONTAINER_APP}
     volumes:
       - ../:/app
     env_file:

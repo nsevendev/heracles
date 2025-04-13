@@ -1,0 +1,32 @@
+services:
+  heracles-go-prod:
+    build:
+      target: prod
+      context: ..
+      dockerfile: docker/Dockerfile
+    image: ${NSC_NAME_CONTAINER_APP}:latest
+    container_name: ${NSC_NAME_CONTAINER_APP}
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=traefik-nseven"
+      - "traefik.http.routers.heracles-go-prod.rule=${HOST_TRAEFIK}"
+      - "traefik.http.routers.heracles-go-prod.entrypoints=websecure"
+      - "traefik.http.routers.heracles-go-prod.tls=true"
+      - "traefik.http.routers.heracles-go-prod.tls.certresolver=le"
+      - "traefik.http.services.heracles-go-prod.loadbalancer.server.port=${PORT}"
+    volumes:
+      - ../:/app
+      - ../.env:/app/.env
+      - ../tmp:/app/tmp
+      - ../src/asset:/app/src/asset
+    env_file:
+      - ../.env
+    networks:
+      - traefik-nseven
+      - heracles
+
+networks:
+  heracles:
+    driver: bridge
+  traefik-nseven:
+    external: true

@@ -17,3 +17,9 @@ commands:
   gwh:
     description: Start compilation of html files
     command: docker exec -i *NSC_NAME_CONTAINER_APP* templ generate -watch -v -log-level -path ./src/template
+  prod:
+    description: demarre le projet pour la prod, changer les variables d'environement pour modifier le host (se base sur le .env)
+    command: docker compose --env-file .env -f compose.prod.yaml up -d --build
+  recette:
+    description: demarre le projet pour la recette, changer les variables d'environement pour modifier le host (se base sur le .env)
+    command: docker compose --env-file .env -f compose.preprod.yaml up -d --build
