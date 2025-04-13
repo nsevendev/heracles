@@ -44,3 +44,17 @@ réutilisable et de les `render` facilement depuis les controllers
 donc à chaque reload de `air` les templates sont recompilés et  
 donc le navigateur peux etre rechargé pour voir les modifications  
 vous n'avez qu'a modifier les fichier `.templ`et `air` s'occupe du reste  
+
+## Production  
+
+- creer et renseigner le fichier `.env` avec les variables de production
+
+```bash
+# build et lancer les containers
+ns c prod
+
+# arreter le container
+ns c stop
+```
+
+**En production ou en recette il faut a chaque fois build pour chaque changement comme il n'y a pas de server de dev, le binaire est autonome**
