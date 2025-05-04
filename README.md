@@ -1,39 +1,11 @@
-# Heracles  
+# Heracles
 
-> Front du projet garage LM4  
+- frontend projet garage Mathieu
 
-## Prérequis  
+## Commandes
 
-- docker doit etre installé  
-- CLI `ns` doit etre installé et à jour    
-- traefik (traefik nseven) doit etre démarré  
-- copier/coller `.env.dist` et nommer le fichier `.env` (demander les variables manquantes)  
-- (si besoin) ajouter dans /etc/hosts le host que vous avez renseigné dans le `.env` qui se situe dans `HOST_TRAEFIK`  
-(prendre la string qui se situe entre parenthèse)
-
-## Commande CLI `ns`
-
-- ns lit un fichier `commands.yaml` situé dans le projet  
-cela permet de creer des commandes personnalisées pour le projet
-- pour lister les commandes disponibles lancer `ns c list`
-- pour executer une commande lancer `ns c <nom_de_la_commande>`
-- pour executer une commande avec un parametre lancer `ns c <nom_de_la_commande> <parametre>`
-
-## Installation  
-
-```bash
-# lance les containers
-ns c dev
-
-# lance les containers avec build
-ns c devb
-
-# lance les containers avec build et en mode no detach
-ns c devbnod
-
-# arreter le container
-ns c stop
-```
+- instruction d'installation taper `make starter`
+- voir les commandes disponible taper `make`
 
 ## Template avec `templ`  
 
@@ -44,17 +16,3 @@ réutilisable et de les `render` facilement depuis les controllers
 donc à chaque reload de `air` les templates sont recompilés et  
 donc le navigateur peux etre rechargé pour voir les modifications  
 vous n'avez qu'a modifier les fichier `.templ`et `air` s'occupe du reste  
-
-## Production  
-
-- creer et renseigner le fichier `.env` avec les variables de production
-
-```bash
-# build et lancer les containers
-ns c prod
-
-# arreter le container
-ns c stop
-```
-
-**En production ou en recette il faut a chaque fois build pour chaque changement comme il n'y a pas de server de dev, le binaire est autonome**

@@ -4,8 +4,8 @@ services:
       target: prod
       context: ..
       dockerfile: docker/Dockerfile
-    image: ${NSC_NAME_CONTAINER_APP}:latest
-    container_name: ${NSC_NAME_CONTAINER_APP}
+    container_name: heracles-go-prod
+    image: heracles:prod
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=traefik-nseven"
