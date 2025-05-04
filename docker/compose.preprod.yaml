@@ -1,3 +1,4 @@
+name: heracles-front-preprod
 services:
   heracles-go-preprod:
     build:

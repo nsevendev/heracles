@@ -1,3 +1,4 @@
+name: heracles-front
 services:
   heracles-go:
     build:
